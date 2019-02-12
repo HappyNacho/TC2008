@@ -5,6 +5,8 @@ _*
 *.asm
 *.sym
 *.img
+goorm.manifest
+test/*
 vectors.S
 bootblock
 entryother

@@ -176,7 +176,9 @@ UPROGS=\
 	_ls\
 	_mkdir\
 	_rm\
+	_reboot\
 	_sh\
+	_apagar\
 	_stressfs\
 	_usertests\
 	_wc\
