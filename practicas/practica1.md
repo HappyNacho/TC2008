@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Crear dos llamdas a sistema con su respectivos comandos para apagar y reiniciar 
+Crear dos llamadas a sistema con su respectivos comandos para apagar y reiniciar 
 
 ## Herramientas
 
@@ -29,5 +29,7 @@ Crear dos llamdas a sistema con su respectivos comandos para apagar y reiniciar
 - Software se comunica con el Kernel, SW->CPU->Kernel
 
 ## Que aprendi
+Aprendimos de las llamadas al sistema. Desde crearlas a nivel sistema operativo, que hace cierta accion desde el kernel, hacerlas displonibles para las aplicaciones y crear una aplicacion que apaga al sistema operativos. Se tienen que crear una interrupcion de aplicacion y de ahi acceder a las llamadas de sistema
 
 ## URL del commit
+https://github.com/HappyNacho/TC2008/commit/a2632b10ba6882e2a09b1abfb61b542efe35f18d 
