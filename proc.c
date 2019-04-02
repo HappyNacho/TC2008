@@ -338,9 +338,11 @@ scheduler(void)
 		
       if(p->state != RUNNABLE)
 		  continue;
+		
 	  if(hp == 0){
 		  hp = p;
 	  }
+		
 	  else if(hp -> priority < p->priority){
 		  hp = p;
 	  }
