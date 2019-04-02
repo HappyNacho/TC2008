@@ -41,3 +41,4 @@ void free(void*);
 int atoi(const char*);
 int setpriority(int, int);
 int getpriority(int);
+int date(struct rtcdate*);

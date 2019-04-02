@@ -2,22 +2,23 @@
 #include "stat.h"
 #include "user.h"
 
-int main(int argc, char **argv){
+int main(int argc, char **argv) {
 	int num = atoi(argv[1]);
 	int i = 0;
 	int j = 0;
 	int k = 0;
-	int q;
-
-	for(i = 0; i < num ; i++){
-		for(j = 0 ; i < 2*num ; j++){
-			for(k = 0 ; i < 3*num  ; k++){
-				q = num * j * i;
-				printf(1,"llenar espacio",q);
+	int x = 0;
+	
+	for (i = 0; i < num; i++) {
+		for (j = 0; j < 2*num; j++) {
+			for (k = 0; k < 3*num; k++) {
+				
+				x = num * j * i;
+				printf(1, "Llenar terminal %d", x);
 			}
 		}
 	}
-	q = q*num;
+	x = x*num;
 	exit();
+	
 }
-

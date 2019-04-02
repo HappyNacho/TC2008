@@ -322,10 +322,10 @@ wait(void)
 void
 scheduler(void)
 {
-  
   struct proc *p;
   struct proc *hp = 0;
   struct cpu *c = mycpu();
+
   c->proc = 0;
   
   for(;;){
@@ -335,33 +335,34 @@ scheduler(void)
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-		
       if(p->state != RUNNABLE)
-		  continue;
-		
-	  if(hp == 0){
-		  hp = p;
-	  }
-		
-	  else if(hp -> priority < p->priority){
-		  hp = p;
-	  }
-	  hp = p;
-	}
+        continue;
+      
+      if( hp == 0){
+	hp = p;
+      }else if(hp->priority <= p->priority){
+	hp = p;
+      }
+    } 
+
+    if(hp == 0)
+      continue;
+	    
+    p = hp;
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
-      c->proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
+    c->proc = p;
+    switchuvm(p);
+    p->state = RUNNING;
 
-      swtch(&(c->scheduler), p->context);
-      switchkvm();
+    swtch(&(c->scheduler), p->context);
+    switchkvm();
 
       // Process is done running for now.
       // It should have changed its p->state before coming back.
-      c->proc = 0;
-    
+    c->proc = 0;
+    //}
     release(&ptable.lock);
 
   }
@@ -543,4 +544,34 @@ procdump(void)
     }
     cprintf("\n");
   }
+}
+int sys_setpriority(void){
+	int pid;
+	int priority;
+	int i;
+
+	argint(0, &pid);
+	argint(1, &priority);
+	
+	for( i = 0; i < NPROC; i += 1){
+		if(ptable.proc[i].pid == pid){
+			ptable.proc[i].priority = priority;
+			return 0;
+		}
+	}
+	return -1;
+}
+
+int sys_getpriority(void){
+        int pid;
+        int i;
+
+        argint(0, &pid);
+    
+        for( i = 0; i < NPROC; i += 1){
+                if(ptable.proc[i].pid == pid){
+                       return  ptable.proc[i].priority;
+           	}
+        }
+        return -1;
 }
