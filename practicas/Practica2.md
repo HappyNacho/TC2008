@@ -31,4 +31,7 @@ git
 
 ## Que Aprendi
 
+Aprendi sobre como se crean los procesos dentro del OS, como init es el proceso padre y las llamadas a sistema de fork y exec para hacer nuevos procesos
 
+## URL del Commit 
+https://github.com/HappyNacho/TC2008/commit/a93241042b800a47db0cf19d11a928e91a9d2aa6 
