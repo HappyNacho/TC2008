@@ -1,6 +1,6 @@
 ## Objetivo 
 
-acer un spike sobre hilos, semáforos y locks. 
+Hacer un spike sobre hilos, semáforos y locks. 
 
 ## Herramientas
 gcc
